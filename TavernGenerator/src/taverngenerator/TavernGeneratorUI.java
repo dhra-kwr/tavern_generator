@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class TavernGeneratorUI extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form TavernGeneratorUI
      */
@@ -40,9 +40,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         specialsField = new javax.swing.JTextField();
         cuisineLabel = new javax.swing.JLabel();
         cuisineField = new javax.swing.JTextField();
-        onTapLabel = new javax.swing.JLabel();
         brewLabel = new javax.swing.JLabel();
-        onTapField = new javax.swing.JTextField();
         brewField = new javax.swing.JTextField();
         sideBusinessLabel = new javax.swing.JLabel();
         sideBusinessField = new javax.swing.JTextField();
@@ -64,6 +62,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         jobsTextArea = new javax.swing.JTextArea();
         generatePanel = new javax.swing.JPanel();
         generateButton = new javax.swing.JButton();
+        generateButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Tavern Generator v0.1");
@@ -184,13 +183,8 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
 
         cuisineField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        onTapLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        onTapLabel.setText("On the Tap:");
-
         brewLabel.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         brewLabel.setText("Strange Brew:");
-
-        onTapField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         brewField.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
@@ -218,15 +212,13 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 .addGroup(foodEtcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(specialsLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(cuisineLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(onTapLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(brewLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(sideBusinessLabel, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(entertainmentLabel, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(foodEtcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(specialsField)
+                    .addComponent(specialsField, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE)
                     .addComponent(cuisineField)
-                    .addComponent(onTapField)
                     .addComponent(brewField)
                     .addComponent(sideBusinessField)
                     .addComponent(entertainmentField))
@@ -245,10 +237,6 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                     .addComponent(cuisineField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(foodEtcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(onTapLabel)
-                    .addComponent(onTapField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(foodEtcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(brewLabel)
                     .addComponent(brewField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -259,7 +247,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 .addGroup(foodEtcPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(entertainmentLabel)
                     .addComponent(entertainmentField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(21, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         featuresPanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Interesting Features", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -328,7 +316,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
             .addGroup(eventsPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(eventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(eventScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
+                    .addComponent(eventScrollPane)
                     .addGroup(eventsPanelLayout.createSequentialGroup()
                         .addGroup(eventsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(eventLabel)
@@ -351,6 +339,8 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 .addGap(0, 13, Short.MAX_VALUE))
         );
 
+        generatePanel.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), "Control Panel", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+
         generateButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         generateButton.setText("GENERATE!");
         generateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -359,20 +349,32 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
             }
         });
 
+        generateButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        generateButton1.setLabel("PRINT!");
+        generateButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                generateButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout generatePanelLayout = new javax.swing.GroupLayout(generatePanel);
         generatePanel.setLayout(generatePanelLayout);
         generatePanelLayout.setHorizontalGroup(
             generatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(generatePanelLayout.createSequentialGroup()
-                .addGap(127, 127, 127)
-                .addComponent(generateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap()
+                .addComponent(generateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(generateButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         generatePanelLayout.setVerticalGroup(
             generatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(generatePanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(generateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(generatePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(generateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(generateButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -405,10 +407,10 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                     .addComponent(eventsPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(featuresPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(foodEtcPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(generatePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addContainerGap(26, Short.MAX_VALUE))
         );
 
         pack();
@@ -423,6 +425,10 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         tavernCobbler();
     }//GEN-LAST:event_generateButtonActionPerformed
 
+    private void generateButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generateButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_generateButton1ActionPerformed
+
     public void tavernCobbler() {
         
         nameCobbler();
@@ -431,6 +437,326 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         barkeepCobbler();
         patronCobbler();
         interestingFeaturesCobbler();
+        eventAndJobCobbler();
+        specialsCobbler();
+        strangeCuisineCobbler();
+        strangeBrewCobbler();
+        sideBusinessCobbler();
+        entertainmentCobbler();
+    }
+    
+    public void entertainmentCobbler() {
+    
+        ArrayList<String> entertainmentList = new ArrayList<>();
+        Random rand = new Random();
+        
+        entertainmentList.add("Gaggle of mimes.. miming!");
+        entertainmentList.add("Bard singing of legends of yore");
+        entertainmentList.add("Inept poet reciting rubbish");
+        entertainmentList.add("Ensemble of harps, horns and drums");
+        entertainmentList.add("Two people punching each other");
+        entertainmentList.add("Arm wrestling contest");
+        entertainmentList.add("Pie eating contest");
+        entertainmentList.add("Razor Cage Fight!");
+        entertainmentList.add("Gambling: 1) cards; 2) dice");
+        entertainmentList.add("Troupe of minstrels");
+        entertainmentList.add("Pickled egg eating contest");
+        entertainmentList.add("Hedge mage conjuring cheap tricks");
+        entertainmentList.add("Lone flutist");
+        entertainmentList.add("Lone lutist");
+        entertainmentList.add("Dance hall with conjured music");
+        entertainmentList.add("Darts game");
+        entertainmentList.add("Bowling with glowing crystal skulls");
+        entertainmentList.add("Drinking contest: mundane");
+        entertainmentList.add("Drinking contest: strange brew");
+        entertainmentList.add("Insect racing contest");
+        //entertainmentList.add("");
+        
+        String entertainment = entertainmentList.get(rand.nextInt(
+                entertainmentList.size()));
+        
+        entertainmentField.setText(entertainment);
+    }
+    
+    public void sideBusinessCobbler() {
+        
+        ArrayList<String> businessList = new ArrayList<>();
+        Random rand = new Random();
+        
+        businessList.add("Fencing stolen goods");
+        businessList.add("Selling slaves");
+        businessList.add("Obtaining slaves");
+        businessList.add("Chapter of a thieves guild");
+        businessList.add("Brokering mercenary services");
+        businessList.add("Brothel");
+        businessList.add("Manufacture of illicit substances");
+        businessList.add("House of holistic healing");
+        businessList.add("Brewery");
+        businessList.add("Smithy");
+        businessList.add("Kidnapping and ransoming");
+        businessList.add("Discreet courier services");
+        businessList.add("Escort services");
+        businessList.add("Chapter of an assassins guild");
+        businessList.add("Chapter of a knightly order");
+        businessList.add("Chapter of a religious order");
+        businessList.add("Antique shop");
+        businessList.add("Apotechary");
+        businessList.add("Collector of rare documents");
+        businessList.add("Promotion of Razor Cage Fights");
+        businessList.add("Smuggling");
+        businessList.add("Sale of horses and mules");
+        businessList.add("Jeweller");
+        businessList.add("Carriage services");
+        businessList.add("Spying for a foreign power");
+        businessList.add("Spying for a local power");
+        businessList.add("Fetish club");
+        businessList.add("Delivering sacrifices to a cult");
+        businessList.add("Messenger services");
+        businessList.add("Trafficking forbidden items");
+        businessList.add("Barbershop");
+        businessList.add("Tailoring services");
+        businessList.add("Carpentry");
+        //businessList.add("");
+        
+        String business = businessList.get(rand.nextInt(businessList.size()));
+        
+        sideBusinessField.setText(business);
+    }
+    
+    public void strangeBrewCobbler() {
+        
+        ArrayList<String> drinkList = new ArrayList<>();
+        Random rand = new Random();
+        
+        drinkList.add("Elven cider");
+        drinkList.add("Elven chilled wine");
+        drinkList.add("Elven wine");
+        drinkList.add("Dwarf spirits");
+        drinkList.add("Dwarf beer");
+        drinkList.add("Fizzy wine");
+        drinkList.add("Gnomish gin");
+        drinkList.add("Halfling ale (from a distant land)");
+        drinkList.add("Dragonborn whiskey");
+        drinkList.add("Goblin sake");
+        drinkList.add("Ogre IPA");
+        drinkList.add("Strange cider (thick and dark)");
+        drinkList.add("Storm giant rum");
+        drinkList.add("Ooze slurry");
+        drinkList.add("Orcish moonshine");
+        
+        String drink = drinkList.get(rand.nextInt(drinkList.size()));
+        
+        brewField.setText(drink);
+    }
+    
+    public void strangeCuisineCobbler() {
+        
+        ArrayList<String> strangeCuisineList = new ArrayList<>();
+        
+        Random rand = new Random();
+        
+        strangeCuisineList.add("Snake Egg Omelette");
+        strangeCuisineList.add("Serpent Souflé");
+        strangeCuisineList.add("Maggots on Toast");
+        strangeCuisineList.add("Jellyfish Sauce");
+        strangeCuisineList.add("Pixie Wing Tart");
+        strangeCuisineList.add("Boar Hoof Paya");
+        strangeCuisineList.add("Marrow Meal");
+        strangeCuisineList.add("Gryphon Flank");
+        strangeCuisineList.add("Sweet Carrot Delight");
+        strangeCuisineList.add("Gnome Berry Surprise");
+        strangeCuisineList.add("Bear's Face Curry");
+        strangeCuisineList.add("Squirrel Stew");
+        strangeCuisineList.add("Mystery Mutton");
+        strangeCuisineList.add("Cockatrice Breast");
+        strangeCuisineList.add("Wolf's Testicle Jelly");
+        strangeCuisineList.add("Glowing Mushroom Salad");
+        strangeCuisineList.add("Hardboiled Wyvern Eggs");
+        strangeCuisineList.add("Wandering Moss Sallad");
+        strangeCuisineList.add("Fried Chimera Paws");
+        strangeCuisineList.add("Dwarf Bread");
+        strangeCuisineList.add("Mimic Steak");
+        strangeCuisineList.add("Fried Giant Spider Legs");
+        //strangeCuisineList.add("");
+        
+        String cuisine = strangeCuisineList.get(rand.nextInt(
+                strangeCuisineList.size()));
+        
+        cuisineField.setText(cuisine);
+        
+    }
+    
+    public void specialsCobbler() {
+        
+        ArrayList<String> specialsList = new ArrayList<>();
+        Random rand = new Random();
+        
+        specialsList.add("Rice and catch of the day");
+        specialsList.add("Fried potatoes and sausage");
+        specialsList.add("Cabbage casarole");
+        specialsList.add("Mashed potatoes and elk steak");
+        specialsList.add("Bear flank and salad");
+        specialsList.add("Rice and chicken with sauce");
+        specialsList.add("Almond bread and butter");
+        specialsList.add("Pork curry and rice");
+        specialsList.add("Chicken wrap");
+        specialsList.add("Rice and duck drums");
+        specialsList.add("Beef curry and rice");
+        specialsList.add("Chicken curry");
+        specialsList.add("Ground beef and baked potatoes");
+        specialsList.add("Chicken salad");
+        specialsList.add("Eggs and bacon");
+        specialsList.add("Ham sandwich");
+        specialsList.add("Pork pie");
+        specialsList.add("Beef pie");
+        specialsList.add("Fowl pie");
+        specialsList.add("Kidney pie");
+        specialsList.add("Fish tartar and fried potatoes");
+        specialsList.add("Fish and chips");
+        specialsList.add("Onion soup");
+        specialsList.add("Spinach soup");
+        specialsList.add("Fish stew");
+        specialsList.add("Smoked fish and rice");
+        specialsList.add("Apple pie");
+        specialsList.add("Cinnamon bun");
+        specialsList.add("Sweet potato pie");
+        specialsList.add("Berry pie");
+        specialsList.add("Vegetable stew");
+        specialsList.add("Bear mutton and potatoes");
+        specialsList.add("Steak and fried potatoes");
+        //specialsList.add("");
+        
+        String specials = specialsList.get(rand.nextInt(specialsList.size()));
+        
+        specialsField.setText(specials);
+    }
+    
+    public void eventAndJobCobbler() {
+        
+        ArrayList<String> eventList = new ArrayList<>();
+        ArrayList<String> jobList = new ArrayList<>();
+        
+        Random rand = new Random();
+        
+        eventList.add("Troupe of wandering actors is preparing a show \n"
+                + "nearby, and folk from far and wide are heading to see it. \n"
+                + "Strange symbols, yellow robes and curious dialects \n"
+                + "seem to feature heavily in their play.");
+        
+        eventList.add("Obscure religious holiday. Involves 1) ritual scarification; \n"
+                + "2) sacrifices of food and drink; 3) smoking sacred herbs; \n"
+                + "4) partaking in the drinking of the \"blood\" of the deity; \n"
+                + "5) praying and chanting; 6) some darker sacrifice.");
+        
+        eventList.add("Duel to the death.");
+        
+        eventList.add("Band of sullen soldiers heading into a conflict.");
+        
+        eventList.add("Holy man / woman barges in and proclaims that \n"
+                + "the building must be torn down and relocated or a dire \n"
+                + "fate will befall the local communities.");
+        
+        eventList.add("Heir of a local noble is harassing the commoners \n"
+                + "and tensions are rising. Will this end in bloodshed?");
+        
+        eventList.add("Strange beasts hunt folk in the night and leave \n"
+                + "behind only tattered clothes and pools of blood.");
+        
+        eventList.add("Local conflict is escalating and people are \n"
+                + "being press-ganged into service by ruffians.");
+        
+        eventList.add("Storm rises suddenly and makes travel dangerous \n"
+                + "for days.");
+        
+        eventList.add("The prisoners of a local \"black site\" have killed \n"
+                + "all the wardens and escaped. The countryside is \n"
+                + "overrun with deranged, dangerous criminals. And \n"
+                + "now some new strangers arrive at the establishment..");
+        
+        eventList.add("During the night a thicket of briars surrounds the \n"
+                + "building. The briar thorns glisten with wet blood.");
+        
+        eventList.add("Grandiose wedding feast is taking place outside the \n"
+                + "tavern / inn. Unfortunately, some nefarious agent laced \n"
+                + "the bride's father's drink with poison and now he's \n"
+                + "dead. Who could've done this?");
+        
+        eventList.add("Good old fashioned hootenanny!");
+        
+        eventList.add("Masked group of people has reserved parts of the \n"
+                + "inn for their private use. Behind the closed doors, they \n"
+                + "are 1) having an orgy (cream of the society only!); \n"
+                + "2) a band of assassins planning an operation; 3) \n"
+                + "a circle of cultists summoning a fiend.");
+        
+        eventList.add("Satyrs are having their revels in a nearby grove and \n"
+                + "the local adolescents have snuck off to participate in the \n"
+                + "celebration. Experience tells that some of them will not \n"
+                + "return back home and some of the lasses will be pregnant \n"
+                + "after the revels.");
+        
+        eventList.add("A solemn procession of spirits pass by the tavern and \n"
+                + "no one knows where they are coming from or where they are \n"
+                + "going to.");
+        
+        //eventList.add("");
+        
+        jobList.add("The flayed skin of a local woodsman was found hanging \n"
+                + "from a briar plant entwined around the mightiest tree \n"
+                + "in the forest. The skin was expertly removed.");
+        
+        jobList.add("Travelling teacher visited the community and taught \n"
+                + "reading, writing and addition to the children. After he \n"
+                + "departed, one of the kids fell unconcious and hasn't \n"
+                + "awoken. The child is slowly wasting away.");
+        
+        jobList.add("Sect of religious extremists have been holed up in \n"
+                + "an abandoned fort for weeks. The locals are getting antsy.");
+        
+        jobList.add("On moonless nights a haunting tune can be heard in the \n"
+                + "wilderness. Anyone hearing it risks being mesmerized by \n"
+                + "the tune. Those enchanted by the music try to follow it never \n"
+                + "to return.");
+        
+        jobList.add("Vampire (or some other creature of the night) has made \n"
+                + "a lair near the community. It is slowly corrupting the \n"
+                + "local leadership and taking their children as its beloved \n"
+                + "\"pets\".");
+        
+        jobList.add("Nearby forest has begun spreading with an amazing speed \n"
+                + "and corrupted, twisted beasts rampage around the \n"
+                + "countryside. What has happened to the local Druidic circle?");
+        
+        jobList.add("Envious orchardist wants to know how his competitor is \n"
+                + "growing tart, ripe apples around the year. Also, the \n"
+                + "competing orchard's cider is suspiciously popular.");
+        
+        jobList.add("During the last earthquake, a passage opened into the \n"
+                + "upper layers of the Underdark. The local populace fears \n"
+                + "that something evil will crawl up from the bowels of the \n"
+                + "earth.");
+        
+        jobList.add("Someone is leaving parcels filled with a volatile \n"
+                + "alchemical substance lying around. Thus far, the exploding \n"
+                + "\"presents\" have led to severe burns, loss of fingers and \n"
+                + "eye damage. The parcels are getting bigger, and it is only \n"
+                + "the matter of time when someone loses their life..");
+        
+        jobList.add("Frogs in a nearby pond have begun their courtship songs \n"
+                + "(maybe very out of season). Thing is, they're not croaking: \n"
+                + "they're singing in the voices of disappeared \n"
+                + "children.");
+        
+        jobList.add("Somebody has been digging up graves from un-sanctified \n"
+                + "areas and stolen the corpses. Who is the perpetrator and \n"
+                + "what are they up to?");
+        
+        //jobList.add("");
+        String event = eventList.get(rand.nextInt(eventList.size()));
+        String job = jobList.get(rand.nextInt(jobList.size()));
+        
+        eventTextArea.setText(event);
+        jobsTextArea.setText(job);
     }
     
     public void interestingFeaturesCobbler() {
@@ -445,7 +771,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         
         features.add("The common room is lined with shelves holding thick \n"
                 + "tomes written in a long-dead language. Sometimes a \n"
-                + "tome floats accross the room trailing dust.");
+                + "tome floats accross the room trailing dust behind it.");
         
         features.add("In the center of the room two brass golems dance \n"
                 + "a slow waltz. It is said that they will keep dancing \n"
@@ -455,7 +781,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "end of the bar. Whoever prays there drinks for free the \n"
                 + "rest of the day.");
         
-        features.add("Animated mouths are carved into the walls whisper \n"
+        features.add("Animated mouths carved into the walls whisper barely \n"
                 + "barely heard soothing words.");
         
         features.add("The fireplace is built into a large marble statue \n"
@@ -464,20 +790,18 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         
         features.add("One side of the common room has been converted into \n"
                 + "a pool for the patrons to lounge in. The water is 1) \n"
-                + "clear 2) murky 3) noxious.");
+                + "clear; 2) murky; 3) noxious.");
         
-        features.add("Spectral patrons flit among the living folk wearing \n"
-                + "strange clothes. They avoid contact with the mundane \n"
+        features.add("Spectral patrons wearing strange clothes flit among \n"
+                + "the living folk. They avoid contact with the mundane \n"
                 + "patrons and turn away if someone tries to engage them \n"
                 + "in a conversation.");
         
-        features.add("The air is heavy in the establishment and gravity's \n"
-                + "pull is stronger here. Walking is difficult and some \n"
-                + "patrons crawl on the floor.");
+        features.add("The gravity's pull is either 1) stronger; 2) weaker \n"
+                + "in the establishment.");
         
-        features.add("A long, narrow table stands in the middle of the \n"
-                + "common room. The table is wreathed in wilted flowers, \n"
-                + "upon which lies the embalmed corpse of the founder of \n"
+        features.add("A long, narrow table wreathed in wilted flowers. On \n"
+                + "the table lies the embalmed corpse of the founder of \n"
                 + "the establishment.");
         
         features.add("The furniture is crafted from the spine of some \n"
@@ -490,18 +814,18 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "anyone scrutinizing the pillar sees into the worst \n"
                 + "possible future they can imagine.");
         
-        features.add("Thick, sticky webbing hangs down from the rafters. \n"
-                + "On rare mornings some patrons are found dead in their \n"
-                + "rooms, wrapped in cocoons with their insides liquified.");
+        features.add("Thick, sticky webs hang down from the rafters. On rare \n"
+                + "mornings some patrons are found dead in their rooms, \n"
+                + "wrapped in cocoons with their insides liquified.");
         
         features.add("In addition to other lighting, fluorescent mushrooms \n"
                 + "grow from the floor and walls. They glow with a gentle \n"
                 + "bluish light, which intensifies as something living \n"
                 + "approaches them.");
         
-        features.add("Every sixth hour, beginning at midnight, the walls \n"
-                + "bleed and sounds of stiffled pleasure echo through the \n"
-                + "premises.");
+        features.add("Beginning at midnight, the walls bleed and sounds \n"
+                + "of stiffled pleasure echo through the premises for an \n"
+                + "hour.");
         
         features.add("The serving staff is composed of halfling-sized, \n"
                 + "six-limbed monkeys wearing garish pantaloons. They \n"
@@ -512,8 +836,10 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "potent.");
         
         features.add("The inn / tavern is carried around on the back of a \n"
-                + "gargantuan, crab-like automaton. The locals curse it as \n"
-                + "it crashes into their property.");
+                + "gargantuan, crab-like automaton. The automaton stays \n"
+                + "immobile for most of the time, but occasionally it starts \n"
+                + "crawling. The locals curse it as it crashes into their \n"
+                + "property.");
         
         features.add("The tables are enchanted to keep one's food warm and \n"
                 + "drink cold. Sometimes the enchantment malfunctions. A \n"
@@ -528,14 +854,35 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "curses and dark enchantments.");
         
         features.add("The furniture is decorated with exquisite carvings \n"
-                + "of nude folk of every conceivable species and sexes \n."
+                + "of nude folk of every conceivable species and sexes \n"
                 + "going at each other in an orgy of pleasure and violence.");
         
-        /*features.add("");
-        features.add("");
-        features.add("");
-        features.add("");
-        */
+        features.add("The walls are covered in psychotic patterns of jarring, \n"
+                + "glaring colors. Once per day the patterns begin to glow \n"
+                + "and flicker frenziedly. Seeing this might induce seizures \n"
+                + "or hallucinations (or both!).");
+        
+        features.add("Tunnel descends from the common room terminating in \n"
+                + "a large underground dance floor. Enchanted musical \n"
+                + "instruments play an aggressive tune, driving the \n"
+                + "dancers into an extatic frenzy.");
+        
+        features.add("Curiously, the ceiling of the establishment is \n"
+                + "actually the floor. Even more curiously, the gravity \n"
+                + "seems to be reversed here.");
+        
+        features.add("A magical portal to another tavern in another land \n"
+                + "shimmers here.");
+        
+        features.add("Entering the common room transports the patron to a \n"
+                + "1) mountain top; 2) secluded forest glade; 3) \n"
+                + "nightmarish hellscape; 4) platform floating in the \n"
+                + "Void. All the usual tavern furnishings and services can \n"
+                + "be found here.");
+        
+        features.add("Time runs strangely within: midnight runs into noon, \n"
+                + "which runs into dusk leading towards the rosy dawn.");
+        
         //features.add("");
         
         String firstFeature = features.get(rand.nextInt(features.size()));
@@ -593,15 +940,18 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         interestingPatronList.add("Killer prowling for their next victim");
         interestingPatronList.add("Priest / priestess of a local order");
         interestingPatronList.add("Secret cultist");
-        interestingPatronList.add("Local crime boss' number one goon");
+        interestingPatronList.add("Local crime bosses number one goon");
         interestingPatronList.add("Local crime boss");
         interestingPatronList.add("Sorcerer resting after a day's travel");
         interestingPatronList.add("Knight on a quest");
         interestingPatronList.add("Self-important tax collector");
         interestingPatronList.add("Well-known slaver");
         interestingPatronList.add("Disliked member of the upper class");
+        interestingPatronList.add("A prophet preaching doom");
+        interestingPatronList.add("An oracle foretelling the future");
         interestingPatronList.add("Well-loved local entrepreneur");
         interestingPatronList.add("Sentient fungus-person having a brew");
+        interestingPatronList.add("Travelling gambler");
         
         interestingPatronField.setText(interestingPatronList.get(rand.
                 nextInt(interestingPatronList.size())));
@@ -656,6 +1006,9 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         barkeepAttribute.add("articulate");
         barkeepAttribute.add("well-mannered");
         barkeepAttribute.add("shuffling");
+        barkeepAttribute.add("near-sighted");
+        barkeepAttribute.add("one-armed");
+        barkeepAttribute.add("peg-legged");
         //barkeepAttribute.add("");
         
         String firstAttribute = barkeepAttribute.get(rand.nextInt(
@@ -710,7 +1063,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         smellsList.add("resin");
         smellsList.add("boiled cabbage");
         smellsList.add("smoked fish");
-        smellsList.add("fried vegetables");
+        smellsList.add("fried veggies");
         smellsList.add("boiled rice");
         smellsList.add("mutton");
         smellsList.add("mint");
@@ -727,7 +1080,8 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
             smellsField.setText(smellCombined.substring(0,1).toUpperCase() + 
                     smellCombined.substring(1).toLowerCase());
         } else {
-            smellsField.setText(smellOne);
+            smellsField.setText(smellOne.substring(0,1).toUpperCase() + 
+                    smellOne.substring(1).toLowerCase());
         }
     }
     
@@ -761,6 +1115,8 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         
         Random rand = new Random();
         
+        tavernNameDescriptor.add("Blunted");
+        tavernNameDescriptor.add("Pointy");
         tavernNameDescriptor.add("Lazy");
         tavernNameDescriptor.add("Dancing");
         tavernNameDescriptor.add("Naked");
@@ -832,6 +1188,12 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         tavernNameDescriptor.add("Homeless");
         tavernNameDescriptor.add("Undead");
         tavernNameDescriptor.add("Flaming");
+        tavernNameDescriptor.add("Glistening");
+        tavernNameDescriptor.add("Ancient");
+        tavernNameDescriptor.add("Odd");
+        tavernNameDescriptor.add("Thieving");
+        tavernNameDescriptor.add("Basking");
+        tavernNameDescriptor.add("Cascading");
         //tavernNameDescriptor.add("");
         
         tavernNameNoun.add("Queen");
@@ -898,6 +1260,29 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         tavernNameNoun.add("Fiend");
         tavernNameNoun.add("Ritualist");
         tavernNameNoun.add("Witch");
+        tavernNameNoun.add("Moon");
+        tavernNameNoun.add("Star");
+        tavernNameNoun.add("Banner");
+        tavernNameNoun.add("Feather");
+        tavernNameNoun.add("Scale");
+        tavernNameNoun.add("Zombie");
+        tavernNameNoun.add("Serpent");
+        tavernNameNoun.add("Leaf");
+        tavernNameNoun.add("Hound");
+        tavernNameNoun.add("Platter");
+        tavernNameNoun.add("Eunuch");
+        tavernNameNoun.add("Harp");
+        tavernNameNoun.add("Pixie");
+        tavernNameNoun.add("Satyr");
+        tavernNameNoun.add("Centaur");
+        tavernNameNoun.add("Goblin");
+        tavernNameNoun.add("Creature");
+        tavernNameNoun.add("Dwarf");
+        tavernNameNoun.add("Mime");
+        tavernNameNoun.add("Trout");
+        tavernNameNoun.add("General");
+        tavernNameNoun.add("Maiden");
+        tavernNameNoun.add("Lad");
         //tavernNameNoun.add("");
         
         int alternative = rand.nextInt(2);
@@ -934,10 +1319,6 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
             **/
         }
         
-    }
-    
-    public void barkeep() {
-        barkeepField.setText("Stiff and corpselike");
     }
     
     public static void main(String args[]) {
@@ -993,6 +1374,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
     private javax.swing.JTextArea firstFeatureTextArea;
     private javax.swing.JPanel foodEtcPanel;
     private javax.swing.JButton generateButton;
+    private javax.swing.JButton generateButton1;
     private javax.swing.JPanel generatePanel;
     private javax.swing.JTextField interestingPatronField;
     private javax.swing.JLabel interestingPatronLabel;
@@ -1003,8 +1385,6 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
     private javax.swing.JLabel lightingLabel;
     private javax.swing.JTextField numberOfPatronsField;
     private javax.swing.JLabel numberOfPatronsLabel;
-    private javax.swing.JTextField onTapField;
-    private javax.swing.JLabel onTapLabel;
     private javax.swing.JLabel secondFeatureLabel;
     private javax.swing.JScrollPane secondFeatureScrollPane;
     private javax.swing.JTextArea secondFeatureTextArea;

@@ -572,7 +572,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         strangeCuisineList.add("Wolf's Testicle Jelly");
         strangeCuisineList.add("Glowing Mushroom Salad");
         strangeCuisineList.add("Hardboiled Wyvern Eggs");
-        strangeCuisineList.add("Wandering Moss Sallad");
+        strangeCuisineList.add("Wandering Moss Salad");
         strangeCuisineList.add("Fried Chimera Paws");
         strangeCuisineList.add("Dwarf Bread");
         strangeCuisineList.add("Mimic Steak");
@@ -596,7 +596,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         specialsList.add("Cabbage casarole");
         specialsList.add("Mashed potatoes and elk steak");
         specialsList.add("Bear flank and salad");
-        specialsList.add("Rice and chicken with sauce");
+        specialsList.add("Rice and chicken");
         specialsList.add("Almond bread and butter");
         specialsList.add("Pork curry and rice");
         specialsList.add("Chicken wrap");
@@ -674,7 +674,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "now some new strangers arrive at the establishment..");
         
         eventList.add("During the night a thicket of briars surrounds the \n"
-                + "building. The briar thorns glisten with wet blood.");
+                + "building. The briar thorns glisten wetly with blood.");
         
         eventList.add("Grandiose wedding feast is taking place outside the \n"
                 + "tavern / inn. Unfortunately, some nefarious agent laced \n"
@@ -696,8 +696,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "after the revels.");
         
         eventList.add("A solemn procession of spirits pass by the tavern and \n"
-                + "no one knows where they are coming from or where they are \n"
-                + "going to.");
+                + "no one knows where they are coming from or going to.");
         
         //eventList.add("");
         
@@ -714,8 +713,8 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "an abandoned fort for weeks. The locals are getting antsy.");
         
         jobList.add("On moonless nights a haunting tune can be heard in the \n"
-                + "wilderness. Anyone hearing it risks being mesmerized by \n"
-                + "the tune. Those enchanted by the music try to follow it never \n"
+                + "wilderness. Anyone hearing the tune risks being mesmerized \n"
+                + "by it. Those enchanted by the music try to follow it – never \n"
                 + "to return.");
         
         jobList.add("Vampire (or some other creature of the night) has made \n"
@@ -732,9 +731,9 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "competing orchard's cider is suspiciously popular.");
         
         jobList.add("During the last earthquake, a passage opened into the \n"
-                + "upper layers of the Underdark. The local populace fears \n"
-                + "that something evil will crawl up from the bowels of the \n"
-                + "earth.");
+                + "depths of the earth. The local populace fears that  \n"
+                + "something evil will crawl up from the dark chasm. Or has \n"
+                + "it already?");
         
         jobList.add("Someone is leaving parcels filled with a volatile \n"
                 + "alchemical substance lying around. Thus far, the exploding \n"
@@ -744,13 +743,21 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         
         jobList.add("Frogs in a nearby pond have begun their courtship songs \n"
                 + "(maybe very out of season). Thing is, they're not croaking: \n"
-                + "they're singing in the voices of disappeared \n"
-                + "children.");
+                + "they're singing in the voices of disappeared children.");
         
         jobList.add("Somebody has been digging up graves from un-sanctified \n"
                 + "areas and stolen the corpses. Who is the perpetrator and \n"
                 + "what are they up to?");
         
+        jobList.add("Strange lights have been sighted glowing in the night from \n"
+                + "the cliffside, where the abandoned Dwarf complex lies. Some \n"
+                + "agency has claimed the area for a base of its operations.");
+        
+        jobList.add("Nearby 1) temple; 2) manor; 3) arcane laboratory was \n"
+                + "broken into and something valuable was stolen. The owner \n"
+                + "wants his property back – desperately. The stolen object \n"
+                + "was: 1) a heretical manuscript; 2) a deed to a barren lot of \n"
+                + "land; 3) a magical item.");
         //jobList.add("");
         String event = eventList.get(rand.nextInt(eventList.size()));
         String job = jobList.get(rand.nextInt(jobList.size()));
@@ -850,7 +857,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
                 + "scaled a little too large for the average human.");
         
         features.add("The serving staff is made of floating, animated \n"
-                + "tableware. Occasionally they sing a song of vampires, \n"
+                + "tableware. Occasionally they sing songs of vampires, \n"
                 + "curses and dark enchantments.");
         
         features.add("The furniture is decorated with exquisite carvings \n"
@@ -960,17 +967,21 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
     
     public void barkeepCobbler() {
         
+        ArrayList<String> barkeepAge = new ArrayList<>();
         ArrayList<String> barkeepAttribute = new ArrayList<>();
         
         Random rand = new Random();
         
-        barkeepAttribute.add("old");
+        barkeepAge.add("old");
+        barkeepAge.add("young");
+        barkeepAge.add("adult");
+        barkeepAge.add("middle-aged");
+        barkeepAge.add("ancient");
+        
         barkeepAttribute.add("cranky");
-        barkeepAttribute.add("young");
         barkeepAttribute.add("pretty");
         barkeepAttribute.add("pouty");
         barkeepAttribute.add("glum");
-        barkeepAttribute.add("middle-aged");
         barkeepAttribute.add("pockmarked");
         barkeepAttribute.add("sarcastic");
         barkeepAttribute.add("sardonic");
@@ -987,7 +998,7 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         barkeepAttribute.add("clumsy");
         barkeepAttribute.add("deft");
         barkeepAttribute.add("deaf");
-        barkeepAttribute.add("well-muscled");
+        barkeepAttribute.add("Muscled");
         barkeepAttribute.add("angry");
         barkeepAttribute.add("scowling");
         barkeepAttribute.add("lazy");
@@ -1009,8 +1020,19 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         barkeepAttribute.add("near-sighted");
         barkeepAttribute.add("one-armed");
         barkeepAttribute.add("peg-legged");
+        barkeepAttribute.add("one-eyed");
+        barkeepAttribute.add("bruised");
+        barkeepAttribute.add("twitchy");
+        barkeepAttribute.add("nervous");
+        barkeepAttribute.add("sweaty");
+        barkeepAttribute.add("enigmatic");
+        barkeepAttribute.add("bent");
+        barkeepAttribute.add("giggling");
+        barkeepAttribute.add("greedy");
+        barkeepAttribute.add("nice");
         //barkeepAttribute.add("");
         
+        String age = barkeepAge.get(rand.nextInt(barkeepAge.size()));
         String firstAttribute = barkeepAttribute.get(rand.nextInt(
                                 barkeepAttribute.size()));
         String secondAttribute = barkeepAttribute.get(rand.nextInt(
@@ -1018,12 +1040,11 @@ public class TavernGeneratorUI extends javax.swing.JFrame {
         String description;
         
         if (firstAttribute.equals(secondAttribute)) {
-            description = firstAttribute.substring(0,1).toUpperCase() + 
-                            firstAttribute.substring(1).toLowerCase();
+            description = age.substring(0,1).toUpperCase() + age.substring(1).toLowerCase() + " , " + firstAttribute;
             barkeepField.setText(description);
         } else {
-            description = firstAttribute.substring(0,1).toUpperCase() + 
-                            firstAttribute.substring(1).toLowerCase() + 
+            description = age.substring(0,1).toUpperCase() + age.substring(1).toLowerCase() + ", " + 
+                            firstAttribute + 
                             " and " + secondAttribute;
             barkeepField.setText(description);
         }
